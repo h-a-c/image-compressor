@@ -1,0 +1,19 @@
+{
+  "name": "image-compression",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "howard",
+  "license": "ISC",
+  "dependencies": {
+    "console-log-html": "^2.0.2",
+    "directory-tree": "^2.2.4",
+    "electron": "^7.1.0"
+  },
+  "devDependencies": {
+    "compress-images": "^1.5.8"
+  }
+}

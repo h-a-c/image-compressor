@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Image Compression App</title>
+		<link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.min.css">	
+		<script type="application/javascript" src="https://cdn.rawgit.com/Alorel/console-log-html/master/console-log-html.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1> Image compression app</h1>
+			<div id="output">
+
+			</div>
+			<br>
+			<div class="card border-success mb-3">
+			  <div class="card-header">Console</div>
+			  <div class="card-body" style="max-height: 30rem; overflow-y: scroll;">
+			  	<ul id="myULContainer"></ul> <!-- I will hold the log messages -->
+			    <script>
+			    	var ConsoleLogHTML = require('console-log-html');
+			        ConsoleLogHTML.connect(document.getElementById("myULContainer")); // Redirect log messages
+			    </script> 
+			  </div>
+			</div>
+			<div class="form-group">
+			  <label class="col-form-label" for="inputDefault">File Path</label>
+			  <input type="text" class="form-control" placeholder="/home/user/project" id="inputPath">
+			    <button type="button" id="setPath" class="btn btn-primary">Set Path</button>
+			    <button type="button" id="selectAll" class="btn btn-secondary">Select all</button>
+			</div>
+			<div id="files" class=card>
+			</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		let output = `
+			<h2 class="page-header"> App Version Data </h2>
+			<ul class="list-group">
+				<li class="list-group-item">Node: ${process.versions.node} </li>
+				<li class="list-group-item">Location: ${process.argv[5].slice(11)} </li>
+				<li class="list-group-item">Electron: ${process.versions.electron} </li>
+			</ul>
+		`;
+		document.getElementById('output').innerHTML = output;
+		require('../js/filexp.js');
+		require('../js/compress.js');
+		require('../renderer.js');
+	</script>
+</html>
+
+
+
